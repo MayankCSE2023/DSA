@@ -7,7 +7,7 @@ using namespace std;
   when the array is passed as an argument.
  This is because arrays decay to pointers when passed to functions, and the size information is lost.*/
 
-void rev_array(int arr[], int n){  
+void rev_array(int arr[], int n){  // reversing array with iteration
        int temp;
 
        for (int i = 0; i < n/2; i++)
@@ -19,7 +19,7 @@ void rev_array(int arr[], int n){
        
 }
 
-void rev_array_rec(int arr[], int a, int n){  
+void rev_array_rec(int arr[], int a, int n){  //reversing array with recursion
        if(a<n){
            int temp=arr[a];
            arr[a]=arr[n];
