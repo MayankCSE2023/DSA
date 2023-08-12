@@ -19,12 +19,24 @@ void rev_array(int arr[], int n){
        
 }
 
+void rev_array_rec(int arr[], int a, int n){  
+       if(a<n){
+           int temp=arr[a];
+           arr[a]=arr[n];
+           arr[n]=temp;
+           rev_array_rec(arr,a+1,n-1);
+       }
+
+       
+}
+
 int main(int argc, char const *argv[])
 {
     int arr[]={0,1,2,3,4,5,6};
     int n= sizeof(arr)/sizeof(int);
 
-    rev_array(arr,n);
+    //rev_array(arr,n);
+    rev_array_rec(arr,0,n-1);
 
     for (int i = 0; i < n; i++)
     {
