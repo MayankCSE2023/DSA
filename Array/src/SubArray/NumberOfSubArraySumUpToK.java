@@ -7,10 +7,10 @@ public class NumberOfSubArraySumUpToK {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int[] nums= {-1,-1,1};
-		System.out.println(subArraySumBrute(nums,0));
-		//System.out.println(subArraySumHashing(nums,4));
-		System.out.println(subArrayTwoPointers(nums,0));
+		int[] nums= {-2,1,-3,4,-1,2,1,1,1,1};
+		//System.out.println(subArraySumBrute(nums,0));
+		System.out.println(subArraySumHashing(nums,4));
+		//System.out.println(subArrayTwoPointers(nums,0));
 
 	}
 	
@@ -33,20 +33,25 @@ public class NumberOfSubArraySumUpToK {
 		return count;
 	}
 	
-	public static int subArraySumHashing(int[] nums,int k) {//wrong logic
+	//-------------------Prefix sum using hashing--------------------------
+	
+	public static int subArraySumHashing(int[] nums,int k) {
 		int count=0;
 		int sum=0;
 		
 		HashMap<Integer,Integer> map=new HashMap<>();
-		map.put(0, nums[0]);
+		map.put(0, 1); //// Handle case when sum - k == 0
 		
 		for(int i=0;i<nums.length;i++) { //{-2,1,-3,4,-1,2,1,1,1,1}
 			sum=sum+nums[i];
-		    map.put(i, sum);
-		    
-		    if(map.containsValue(sum-k)) {
-		    	count++;
+		   
+		    if(map.containsKey(sum-k)) {
+		    	count=count+map.get(sum-k);
 		    }
+		    
+		 // Increment the frequency of the current sum in the map
+	        map.put(sum, map.getOrDefault(sum, 0) + 1); //if no sum already present than it will be initialised with 0 and added 1
+	        
 		}
 		return count;
 	}
