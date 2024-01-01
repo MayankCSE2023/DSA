@@ -6,14 +6,15 @@ public class LongestSubArrayWithSumEqualsK {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {1,1,2,3,4,2,1,2,1,2,1,3,4,5,1,1,1,3};
+		int[] nums1= {1,1,2,3,4,2,1,2,1,2,1,3,4,5,1,1,1,3};
+		int[] nums2= {1,1,-1,3,3,-1,3,1,3,1,-1,1,1,1,1,3};
 		
-		//System.out.println(findSubarray(nums, 3));
-		System.out.println(findSubarrayHashMap(nums,4));
+	    System.out.println(findSubarray(nums1, 3));
+		System.out.println(findSubarrayHashMap(nums2,4));
 
 	}
 	
-//------------------------HashMap-------------------------------------------//
+//------------------------HashMap(Only works for positive and zeros)-------------------------------------------//
 	//Take the sum as key and index at value
 	public static int findSubarrayHashMap(int[] nums,int k) {
 		int max=0;
@@ -44,7 +45,7 @@ public class LongestSubArrayWithSumEqualsK {
 		return max;
 	}	
 	
-//------------------------Sliding Window-----------------------------------//	
+//------------------------Sliding Window(Work for positive and negative both)-----------------------------------//	
 	public static int findSubarray(int[] nums,int k) {
 		int max=0;
 		int start=0,end=0;
