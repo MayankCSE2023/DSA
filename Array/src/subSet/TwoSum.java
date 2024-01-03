@@ -1,4 +1,4 @@
-package subSequence;
+package subSet;
 
 import java.util.HashMap;
 

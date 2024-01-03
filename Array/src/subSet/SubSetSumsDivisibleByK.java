@@ -1,4 +1,4 @@
-package subSequence;
+package subSet;
 
 import java.util.Arrays;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
 //return the number of non-empty subarrays that have a sum divisible by k.
 //A subarray is a contiguous part of an array.
 
-public class SubarraySumsDivisibleByK {
+public class SubSetSumsDivisibleByK {
 
 	public static void main(String[] args) {
 		
