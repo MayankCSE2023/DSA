@@ -63,7 +63,7 @@ public class Permutation {
             }
 
             for (int i = l - 1; i >= 0; i--) {
-                if (nums[i] > nums[ind]) { // swap the next largest number
+                if (nums[i] > nums[ind]) { // swap the next largest number w.r.t ind index element
                     int temp = nums[i];
                     nums[i] = nums[ind];
                     nums[ind] = temp;
