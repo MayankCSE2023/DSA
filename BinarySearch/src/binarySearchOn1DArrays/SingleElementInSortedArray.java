@@ -29,34 +29,42 @@ public class SingleElementInSortedArray {
 
 	public static int singleNonDuplicate(int[] nums) {
 
+		int low = 1;
+		int high = nums.length - 2;
+		int mid=-1;
+
 		if (nums.length == 1) {
-			return 0;
+			return nums[0];
 		}
 
-		return search(nums, 0, nums.length - 1);
+		if (nums[low - 1] != nums[low]) {
+			return nums[low - 1];
+		} else if (nums[high] != nums[high + 1]) {
+			return nums[high + 1];
+		}
+
+		while (low <= high) {//in binary search always look for ways to eliminate 1 side of the array
+
+			mid = low + (high - low) / 2;//3, 3, 7, 7, 10, 11, 11
+
+			if (nums[mid - 1] != nums[mid] && nums[mid] != nums[mid + 1]) {
+					return nums[mid];
+			}
+			
+			if(mid%2==0) {
+				if(nums[mid]==nums[mid+1]) {
+					low=mid+1;
+				}else {
+					high=mid-1;
+				}
+			}else {
+				if(nums[mid]==nums[mid-1]) {
+					low=mid+1;
+				}else {
+					high=mid-1;
+				}
+			}
+		}
+		return mid;
 	}
-
-	public static int search(int[] nums, int low, int high) {
-		if (low >= high) {
-			return -1;
-		}
-
-		int mid = low + (high - low) / 2;
-
-		if ((mid == 0 && nums[mid + 1] != nums[mid]) || (mid == high && nums[mid] != nums[mid - 1])) {
-			return nums[mid];
-		} else if (nums[mid + 1] != nums[mid] && nums[mid - 1] != nums[mid]) {
-			return nums[mid];
-		}
-
-		int leftResult = search(nums, low, mid - 1);
-		int rightResult = search(nums, mid + 1, high);
-
-		if (leftResult == -1 && rightResult == -1) {
-			return -1; // Not found in this range
-		} else {
-			return leftResult != -1 ? leftResult : rightResult;
-		}
-	}
-
 }
