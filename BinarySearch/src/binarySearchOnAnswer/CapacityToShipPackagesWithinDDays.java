@@ -42,47 +42,56 @@ public class CapacityToShipPackagesWithinDDays {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] weights={1,2,3,4,5,6,7,8,9,10};
-		System.out.println(shipWithinDays(weights, 5));
+		int[] weights = { 1, 2, 3, 1, 1 };
+		System.out.println(shipWithinDays(weights, 4));
 
 	}
-	
-	 public static int shipWithinDays(int[] weights, int days) {
-	        int min;
-	        int sum=0;
-	        for(int i=0;i<weights.length;i++){
-	            sum=sum+weights[i];
-	        }
 
-	        min=sum/days;
-	        int total=0;
+	public static int shipWithinDays(int[] weights, int days) {
+		int sum = 0;
+		int low = 0;
 
-	        while(total<sum){
-	            int n=days;
-	            int dayLimit=0;
-	            total=0;
+		for (int i = 0; i < weights.length; i++) {
+			sum = sum + weights[i];
+			if (weights[i] > low) {
+				low = weights[i];
+			}
+		}
 
-	            for(int i=0;i<weights.length;i++){//1,2,3,4,5,6,7,8,9,10
-	                if(n==0){
-	                    break;
-	                }
-	                dayLimit=dayLimit+weights[i];
+		int high = sum;
+		int ans = 0;
 
-	                if(dayLimit+weights[i+1]>min){
-	                    n--;
-	                    total=total+dayLimit;
-	                    dayLimit=0;
-	                }
-	            }
+		while (low <= high) {
+			int mid = low + (high - low) / 2;
 
-	            if(total==sum){
-	                break;
-	            }
+			int totalDays = findLimit(weights, mid);
 
-	            min++;
-	        }
+			if (totalDays <= days) {
+				ans = mid;
+				high = mid - 1;
+			} else {
+				low = mid + 1;
+			}
 
-	        return min;
-	    }
+		}
+
+		return ans;
+	}
+
+	public static int findLimit(int[] weights, int limit) {
+		int dailyLimit = 0;
+		int days = 1;
+
+		for (int weight : weights) {
+			if (dailyLimit + weight <= limit) {
+				dailyLimit += weight;
+			} else {
+				days++;
+				dailyLimit = weight;
+			}
+		}
+
+		return days;
+	}
 
 }
