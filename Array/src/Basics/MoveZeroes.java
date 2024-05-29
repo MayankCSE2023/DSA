@@ -31,7 +31,7 @@ public class MoveZeroes {
 
         while(nonZero<n){       //-------N TC
             if(nums[zero]==0){
-                if(nums[nonZero]==0){
+                if(nums[nonZero]==0){//0,3,0,1,0,3,12,0
                     nonZero++;
                     continue;
                 }

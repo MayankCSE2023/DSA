@@ -16,7 +16,7 @@ public class CheckIfArrayIsSortedAndRotated {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums = {6,4,3,2,1};
+		int[] nums = {3,2,1};
 		System.out.println(check(nums));
 	}
 	
@@ -24,35 +24,34 @@ public class CheckIfArrayIsSortedAndRotated {
 
 	public static boolean check(int[] nums) {
 
-		int ind = 0;
-
 		if (nums.length == 1 || nums.length == 2) {
 			return true;
 		}
+		
+		int len=nums.length;
+		int pivot=0;
 
-		for (int i = 0; i < nums.length - 1; i++) {// nums = { 3, 4, 5, 1, 2 };
-			if (nums[i] > nums[i + 1]) {
-				ind = i;
-				break;
-			} else if (i == nums.length - 2) {
-				return true;
-			}
-		}
-
-		if (ind == 0 && nums[1] > nums[2]) {// 6,4,3,2,1
-			for (int i = 0; i < nums.length - 1; i++) {
-				if (nums[i] < nums[i + 1]) {
+		//case 1
+		
+		if(nums[0]<nums[len-1]) {
+			for(int i=0;i<len-1;i++) {  
+				if(nums[i]>nums[i+1]) {  // check if array is not rotated and in increasing order
 					return false;
 				}
 			}
-		} else {
-
-			for (int i = ind + 1; i < nums.length - 1; i++) {//3,1,2,2,4
-				if (nums[i] > nums[i + 1] || nums[i+1] > nums[ind]) {
-					return false;
+		}else {
+			for(int i=0;i<len-1;i++) {  
+				if(nums[i]>nums[i+1]) {  // check if array is rotated and only have 1 pivot
+					pivot++;
 				}
 			}
+			
+			if(pivot>1) {
+				return false;
+			}
 		}
+		
+		
 		return true;
 	}
 

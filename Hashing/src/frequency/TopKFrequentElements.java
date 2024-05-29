@@ -1,7 +1,11 @@
 package frequency;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /*Given an integer array nums and an integer k, return the k most frequent elements.
@@ -22,46 +26,59 @@ public class TopKFrequentElements {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums = { 1, 1, 1, 2, 2, 3 };
+		int[] nums = { 1, 1, 1, 2, 2, 3};
 		int[] arr = topKFrequent(nums, 2);
+		printArray(arr);
+		
 
 	}
 
-	public static int[] topKFrequent(int[] nums, int k) {
+	public static int[] topKFrequent(int[] nums, int k) {// HashMap and bucket sort
+		
 		int[] arr = new int[k];
-
+		List<Integer>[] bucket= new List[nums.length+1];
 		HashMap<Integer, Integer> map = new HashMap<>();
-		int pre = nums[0];
-		int count = 0;
-
-		for (int i = 0; i < nums.length;) {// nums= {1,1,1,2,2,3};
-			
-			if (nums[i] != pre) {
-				map.put(count, nums[i - 1]);
-				count = 0;
-				pre = nums[i];
-				continue;
+		
+		for(int i=0;i<nums.length;i++) { // create a hash table
+			if(map.containsKey(nums[i])) {
+				int fre=map.get(nums[i])+1;
+				map.put(nums[i],fre);
+				
+			}else {
+				map.put(nums[i],1);
 			}
-			
-			count++;
-			i++;
 		}
 		
-		map.put(count, nums[nums.length - 1]);
 		
-		System.out.println(map);
-		int[] arry=new int[map.size()];
-		Set<Integer> s=map.keySet();
-		int i=0;
-	      for(int e: s) {
-	    	  arry[i]=e;
-	    	  i++;
-	      }
-	      
-	     Array.s
-
+		for(Map.Entry<Integer, Integer> e : map.entrySet()) {
+			
+			int frequency= e.getValue();
+			
+			if(bucket[frequency]==null) {
+				bucket[frequency]=new ArrayList<>();
+				bucket[frequency].add(e.getKey());
+			}else {
+				bucket[frequency].add(e.getKey());
+			}
+		}
+		
+		int count=0;
+		
+		for(int i=bucket.length-1;i>=0 && count<k;i--) {
+			if(bucket[i]!=null) {
+				for(Integer e: bucket[i]) {
+					arr[count++]= e;
+				}
+			}
+		}
 		return arr;
 
+	}
+	
+	public static void printArray(int[] arr) {
+		for(int i: arr) {
+			System.out.print(i+" ");
+		}
 	}
 
 }

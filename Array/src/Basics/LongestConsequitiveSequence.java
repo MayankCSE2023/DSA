@@ -35,7 +35,9 @@ public class LongestConsequitiveSequence {
         for(int i=0;i<nums.length;i++){
             map.put(nums[i],i);
         }
+        
         int count=0;
+        
         for(int e: map.keySet()){
             int cur=e;
 

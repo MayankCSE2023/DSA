@@ -19,7 +19,7 @@ public class MostFrequentEvenElement {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int[] nums = {0,1,2,2,4,4,1};
+		int[] nums = {0,1,2,2,4,4,4,1};
 		System.out.println(mostFrequentEven(nums));
 
 	}

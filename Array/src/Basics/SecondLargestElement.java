@@ -12,7 +12,7 @@ public class SecondLargestElement {
 			if(nums[i]>largest) {
 				secondLargest=largest;//if largest is someone new then 2nd largest is the previos largest
 				largest=nums[i];
-			}else if(nums[i]<largest && nums[i]>secondLargest) { //ifa int is less than largest but greater than the second largest then the new second largest will be this integer
+			}else if(nums[i]<largest && nums[i]>secondLargest) { //if a int is less than largest but greater than the second largest then the new second largest will be this integer
 				secondLargest=nums[i];
 			}
 		}
