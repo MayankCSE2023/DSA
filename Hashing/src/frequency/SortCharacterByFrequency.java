@@ -1,4 +1,4 @@
-package sorting;
+package frequency;
 
 import java.util.ArrayList;
 import java.util.HashMap;

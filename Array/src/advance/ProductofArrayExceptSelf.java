@@ -34,13 +34,13 @@ public class ProductofArrayExceptSelf {
         int[] postfix=new int[nums.length];
         int mul=1;
 
-        for(int i=0;i<nums.length;i++){
+        for(int i=0;i<nums.length;i++){ //[1,2,3,4]
             if(i==0){
                 prefix[i]=1;
                 continue;
             }
 
-            prefix[i]=prefix[i-1]*nums[i-1];
+            prefix[i]=prefix[i-1]*nums[i-1];// [1,1,2,6]
         }
 
         for(int i=nums.length-1;i>=0;i--){
@@ -49,7 +49,7 @@ public class ProductofArrayExceptSelf {
                 continue;
             }
 
-            postfix[i]=postfix[i+1]*nums[i+1];
+            postfix[i]=postfix[i+1]*nums[i+1];// [24,12,4,1]
         }
 
         for(int i=0;i<nums.length;i++){

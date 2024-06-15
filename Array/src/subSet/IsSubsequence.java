@@ -17,7 +17,7 @@ public class IsSubsequence {
 	//--------------------check subSequence------------------------------//
 	public static boolean findSubsequence(int[] nums,int i,int sum,int n,int count,boolean status){
 		
-		 if(status == true) {
+		 if(status == true) { // prevent unnecessary recursion calls
 	        	return status;
 	        }
 		 

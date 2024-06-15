@@ -1,4 +1,4 @@
-package prefix;
+package binarySearchOnAnswer;
 
 /*Write a function to find the longest common prefix string amongst an array of strings.
 
@@ -23,7 +23,7 @@ public class LongestCommonPrefix {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String[] strs= {"flower","flow","flight"};
+		String[] strs= {"babb","caa"};
 		
 		System.out.println(longestCommonPrefix(strs));
 
@@ -61,10 +61,10 @@ public class LongestCommonPrefix {
     }
 
     public static boolean isCommon(String[] strs, int k){
-        String ref=strs[0].substring(0,k+1);
+        char ref=strs[0].charAt(k);
 
         for(int i=0;i<strs.length;i++){
-            if(!strs[i].startsWith(ref)){
+            if(strs[i].charAt(k)!=ref){
                 return false;
             }
         }

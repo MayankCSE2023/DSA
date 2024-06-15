@@ -37,14 +37,20 @@ public class BuyAndSellStock {
         int cost;
 
         for(int i=1;i<prices.length;i++){
-            cost=prices[i]-buy;
+            
+        	if(prices[i]<buy){// this checks if there is any day when stocks is lesser than already present stocks.if yes then replace and check if we can sell it with max profit then already present.
+                buy=prices[i];
+                continue;
+            }
+        	
+        	cost=prices[i]-buy;
+            
+            
             if(cost>max){
                 max=cost;
             }
 
-            if(prices[i]<buy){// this checks if there is any day when stocks is lesser than already present stocks.if yes then replace and check if we can sell it with max profit then already present.
-                buy=prices[i];
-            }
+            
         }
 
 ///-------------------------N^2 time complexity---------------------------------//

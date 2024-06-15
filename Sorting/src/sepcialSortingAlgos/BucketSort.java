@@ -1,4 +1,4 @@
-package sorting;
+package sepcialSortingAlgos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ Constraints:
 1 <= s.length <= 5 * 105
 s consists of uppercase and lowercase English letters and digits.*/
 
-public class SortCharacterByFrequency {
+public class BucketSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

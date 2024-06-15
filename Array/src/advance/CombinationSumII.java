@@ -64,12 +64,16 @@ public class CombinationSumII {
 
 	    public static void allCombinations(int[] candidates, int target, int sum, int i, List<Integer> set,
 	            HashSet<List<Integer>> allSet) {
+	    	
+	    	if(sum>target) {
+	    		return;
+	    	}
 
-	        if (i == candidates.length) {
+	        if (i >= candidates.length) {
 	            if (sum == target) {
-	                List<Integer> s = new ArrayList(set);
-	                Collections.sort(s);
-	                allSet.add(new ArrayList(s));
+	            	List<Integer> s = new ArrayList(set);
+		            Collections.sort(s);
+		            allSet.add(s);
 	            }
 	            return;
 	        }
@@ -77,7 +81,7 @@ public class CombinationSumII {
 	        if (sum == target) {
 	            List<Integer> s = new ArrayList(set);
 	            Collections.sort(s);
-	            allSet.add(new ArrayList(s));
+	            allSet.add(s);
 	            return;
 	        }
 

@@ -21,8 +21,8 @@ public class MergeTwoSortedArrays {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums1= {4,5,6,0,0,0};
-		int[] nums2= {1,2,3};
+		int[] nums1= {1,2,3,0,0,0};
+		int[] nums2= {2,5,6};
 		merge(nums1, 3, nums2, 3);
 		
 		for (int i : nums1) {
@@ -31,30 +31,40 @@ public class MergeTwoSortedArrays {
 
 	}
 	
+	// Approach is start filling the largest number first from the last 
+	
 	public static void merge(int[] nums1, int m, int[] nums2, int n) {
-		  int ptr1=0;
-	        int ptr2=0;
-	        int ptrN=m;
-	        int l=m+n;
+		    int endM=m-1; // end of first array
+	        int endN=n-1; // end of second array
+	        int fill=m+n-1; // end of full length of the first array
 	        
 	        if(n==0){
 	            return;
 	        }
 
-	        for(int i=0,j=m-1;i<n;i++,j--){//nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-	            if(nums1[j]<nums2[i]){
-	                break;
-	            }else{
-	                int temp=nums1[j];
-	                nums1[j]=nums2[i];
-	                nums2[i]=temp;
-	            }
+	        while(endM>=0 && endN>=0) {  //  nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+	        	if(nums1[endM]<=nums2[endN]) {
+	        		nums1[fill]= nums2[endN];  // [1,2,3,0,0,6] after first iteration
+	        		endN--;
+	        		fill--;
+	        	}else if(nums1[endM]>nums2[endN]) {
+	        		nums1[fill]= nums1[endM];
+	        		endM--;
+	        		fill--;
+	        	}
 	        }
 	        
-	        Arrays.sort(nums2);
-	        Arrays.sort(nums1);
-	        
-	        
+	        if(endM<0) {
+	        	while(endN>=0) {
+	        		nums1[fill]= nums2[endN];
+	        		endN--;
+	        		fill--;
+	        	}
+	        }else {
+	        	nums1[fill]= nums1[endM];
+	        	endM--;
+        		fill--;
+	        }
     }
 
 }

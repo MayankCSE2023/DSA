@@ -119,7 +119,7 @@ public class BookAllocation {
 			}
 		}
 
-		while (low <= high) {
+		while (low <= high) { //12, 34, 67, 90
 			int student = 1;
 			int sum = 0;
 

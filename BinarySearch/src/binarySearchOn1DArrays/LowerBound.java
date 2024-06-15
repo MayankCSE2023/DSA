@@ -42,39 +42,64 @@ public class LowerBound {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {1,2,2,3,3,5};
-		System.out.println(lowerBound(nums, 6, 4));
+		int[] nums= {2,5,6,7,9,10};
+		System.out.println(lowerBound(nums, 6, 3));
 	}
+	
+//	public static int lowerBound(int []arr, int n, int x) {
+//        // Write your code here
+//        int low=0;
+//        int high=n-1;
+//        int mid=0;
+//
+//        while(low<=high){
+//            mid=low+(high-low)/2;
+//
+//            if(arr[mid]==x){
+//                if(mid-1<0 || arr[mid-1]!=x){
+//                    return mid;
+//                }else{
+//                    high=mid-1;
+//                }
+//            }else if(arr[mid]>x){
+//                if(mid-1<0 || arr[mid-1]<x){
+//                    return mid;
+//                }
+//                high=mid-1;
+//            }else{
+//                if(mid+1==n || arr[mid+1]>=x){
+//                    return mid+1;
+//                }
+//                low=mid+1;
+//            }
+//        }
+//
+//        return mid;
+//    }
 	
 	public static int lowerBound(int []arr, int n, int x) {
         // Write your code here
         int low=0;
         int high=n-1;
         int mid=0;
+        
+        int idx=0;
+        
 
         while(low<=high){
             mid=low+(high-low)/2;
 
-            if(arr[mid]==x){
-                if(mid-1<0 || arr[mid-1]!=x){
-                    return mid;
-                }else{
-                    high=mid-1;
-                }
-            }else if(arr[mid]>x){
-                if(mid-1<0 || arr[mid-1]<x){
-                    return mid;
-                }
-                high=mid-1;
-            }else{
-                if(mid+1==n || arr[mid+1]>=x){
-                    return mid+1;
-                }
-                low=mid+1;
+            if(arr[mid]>=x) {
+            	idx=mid;
+            	high=mid-1;
+            }else if(arr[mid]<x) {
+            	low=mid+1;
+            }else {
+            	high=mid-1;
             }
         }
 
-        return mid;
+        return idx;
     }
 
 }

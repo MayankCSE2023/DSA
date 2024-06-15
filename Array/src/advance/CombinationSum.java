@@ -34,8 +34,8 @@ public class CombinationSum {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] candidates= {2,3,6,7};
-		List<List<Integer>> allList= combinationSum(candidates,7);
+		int[] candidates= {2,3,5};
+		List<List<Integer>> allList= combinationSum(candidates,8);
 		
 		for (List<Integer> list : allList) {
 			System.out.println(list);
@@ -59,7 +59,7 @@ public class CombinationSum {
         }
 
         list.add(candidates[i]);
-        sumList(candidates,i,target,sum+candidates[i],allList,list);
+        sumList(candidates,i,target,sum+candidates[i],allList,list);// 2,3,5    8
         list.remove(list.size()-1);
         sumList(candidates,i+1,target,sum,allList,list);
     }

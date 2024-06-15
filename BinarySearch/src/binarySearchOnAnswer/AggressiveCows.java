@@ -41,8 +41,8 @@ public class AggressiveCows {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int[] stalls= {0,3,4,7,10,9};
-		System.out.println(aggressiveCows(stalls, 4)); 
+		int[] stalls= {1,2,3,4,6};
+		System.out.println(aggressiveCows(stalls, 3)); 
 		
 	}
 	
@@ -70,7 +70,7 @@ public class AggressiveCows {
 		return ans;
     }
 	
-	public static boolean possible(int []stalls, int k,int dist) {//{0,3,4,7,10,9}
+	public static boolean possible(int []stalls, int k,int dist) {//{1,2,3,4,6}
 		int last=stalls[0];
 		int cow=1;
 		

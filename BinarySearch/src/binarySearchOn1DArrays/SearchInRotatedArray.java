@@ -27,7 +27,7 @@ public class SearchInRotatedArray {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {5,3,2,1};
+		int[] nums= {4,5,6,7,0,1,2};
 		System.out.println(search(nums, 1));
 
 	}

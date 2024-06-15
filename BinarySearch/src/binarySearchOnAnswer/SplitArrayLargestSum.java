@@ -44,7 +44,7 @@ public class SplitArrayLargestSum {
 			largest = largest + nums[i];
 		}
 
-		while (lowest <= largest) {
+		while (lowest <= largest) {//2,3,1,1,1,1,1
 			int mid=lowest+(largest-lowest)/2;
 			
 			int sub=findSub(nums, mid);

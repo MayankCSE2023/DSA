@@ -36,7 +36,7 @@ public class MinimumDaysToMakeMBouquets {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] bloomDay = { 7, 7, 7, 7, 12, 7, 7 };
+		int[] bloomDay = { 7, 7, 7, 7, 12, 7, 7,7};
 		System.out.println(minDays(bloomDay, 2, 3));
 	}
 

@@ -37,17 +37,16 @@ public class KokoLovesBanana {
 
 	public static int minEatingSpeed(int[] piles, int h) {
 
-		int min = Integer.MAX_VALUE;
-		int max=0;
+		int low=1;
+		int high=0;
 
 		for (int i = 0; i < piles.length; i++) {
-			if (piles[i] > max) {
-				max = piles[i];
+			if (piles[i] > high) {
+				high = piles[i];
 			}
 		}
 		
-		int low=1;
-		int high=max;
+		
 		int ans=Integer.MAX_VALUE;
 		
 		while(low<=high) {//30,11,23,4,20
@@ -64,6 +63,11 @@ public class KokoLovesBanana {
 
 		return ans;
 	}
+	
+	//Note: You can always use binary search to find a MINIMUM or a MAXIMUM,
+	//      this problem has the property that it wants you to find the minimum possible,
+	     // and you have a defined maximum and minimum, we know number of days cannot be more
+	//      than max and cannot be less than min, this exactly leads to binary search.
 
 	public static int findTotalHours(int[] piles,int k) {
 

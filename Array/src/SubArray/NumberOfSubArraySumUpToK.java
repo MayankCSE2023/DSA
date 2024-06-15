@@ -8,9 +8,9 @@ public class NumberOfSubArraySumUpToK {
 		// TODO Auto-generated method stub
 		
 		int[] nums= {-2,1,-3,4,-1,2,1,1,1,1};
-		//System.out.println(subArraySumBrute(nums,0));
+		System.out.println(subArraySumBrute(nums,4));
 		System.out.println(subArraySumHashing(nums,4));
-		//System.out.println(subArrayTwoPointers(nums,0));
+		System.out.println(subArrayTwoPointers(nums,4));
 
 	}
 	

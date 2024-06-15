@@ -7,7 +7,7 @@ public class AllSubSet {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {1,2,1,2};
+		int[] nums= {1,2,3,4};
 		List<List<Integer>> allSub=new ArrayList<>();
 		//findSubSet(nums,0,new ArrayList<>(),allSub);
 		findSubsetNoDublicates(nums,0,new ArrayList<>(),allSub);

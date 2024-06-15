@@ -50,7 +50,7 @@ public class FloorCeilInSortedArray {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {2,3,4,6,8,10};
+		int[] nums= {2,3,4,6,7,10};
 		int[] out= getFloorAndCeil(nums, 6, 8);
 		
 		for (int i : out) {

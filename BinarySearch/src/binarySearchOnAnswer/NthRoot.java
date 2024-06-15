@@ -5,11 +5,11 @@ public class NthRoot {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		System.out.println(NthRoot(2,625));
+		System.out.println(nthRoot(4,625));
 
 	}
 	
-	public static int NthRoot(int n, int m) {
+	public static int nthRoot(int n, int m) {
         // Write your code here.
         int low = 0;
 		int high = m/n;
@@ -20,6 +20,7 @@ public class NthRoot {
 			mid = low + (high - low) / 2;
 
             int product=1;
+            
             for(int i=0;i<n;i++){
                 product=product*mid;
             }

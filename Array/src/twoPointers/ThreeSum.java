@@ -8,7 +8,7 @@ public class ThreeSum {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {0,0,0,0};
+		int[] nums= {-4,-4,-1,-1,0,1,2,2};
 		List<List<Integer>> out=threeSum(nums);
 		for (List<Integer> i : out) {
 			System.out.println(i);

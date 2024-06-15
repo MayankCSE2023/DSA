@@ -23,7 +23,7 @@ public class FindPeakElement {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {1,2,3,1};
+		int[] nums= {1,2,1,3,5,6,4};
 		System.out.println(findPeakElement(nums));
 	}
 	
@@ -40,7 +40,7 @@ public class FindPeakElement {
 	            return high+1;
 	        }
 
-	        while(low<=high){
+	        while(low<=high){                                       //1,2,1,3,5,6,4
 
 	            mid=low+(high-low)/2;
 

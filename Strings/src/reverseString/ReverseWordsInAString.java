@@ -47,6 +47,7 @@ public class ReverseWordsInAString {
         String str = new String();
         int end=0,start=0;
         
+   
         for(int i=s.length()-1;i>=0;i--) {//"a good   example"
         	if(s.charAt(i)!=' ') {
         		end=i;
