@@ -1,4 +1,4 @@
-package binarySearchOnAnswer;
+package slidingWindow;
 
 import java.util.Arrays;
 
